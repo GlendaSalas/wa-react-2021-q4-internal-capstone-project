@@ -1,5 +1,6 @@
 import './App.css';
 import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
+import CarouselComponent from './components/Categories';
 import Footer from './components/Footer';
 import Header from './components/Header';
 
@@ -11,7 +12,7 @@ function App() {
     <div className="App">
       <Header />
       <div className="Content">
-        <p>This is the content</p>
+        <CarouselComponent />
       </div>
       <Footer />
     </div>

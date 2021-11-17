@@ -9,7 +9,7 @@ function Header() {
       <img src={logo} className="Logo" alt="logo" />
       <nav className="Nav">
         <a href="/">
-          <i class="fa fa-search"></i>
+          <i className="fa fa-search"></i>
         </a>
         <a href="/">
           <i className="fa fa-shopping-cart"></i>
