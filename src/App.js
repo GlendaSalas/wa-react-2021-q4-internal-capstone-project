@@ -1,9 +1,11 @@
 import './App.css';
 import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
-import CarouselComponent from './components/Categories';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import ProductsComponent from './components/Products';
+
+import BannerComponent from './components/commons/Banner';
+import CarouselComponent from './components/Products/Categories';
+import Footer from './components/commons/Footer';
+import Header from './components/commons/Header';
+import ProductsComponent from './components/Products/Products';
 
 function App() {
   const { data, isLoading } = useFeaturedBanners();
@@ -15,6 +17,7 @@ function App() {
       <div className="Content">
         <CarouselComponent />
         <ProductsComponent />
+        <BannerComponent />
       </div>
       <Footer />
     </div>

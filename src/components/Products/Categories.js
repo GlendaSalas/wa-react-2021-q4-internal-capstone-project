@@ -1,10 +1,9 @@
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
-import data from '../mocks/es-mx/product-categories.json';
+import data from '../../mocks/en-us/product-categories.json';
 import React from 'react';
 
 function CarouselComponent() {
-  console.log(data.results[0]);
   return (
     <div className="carousel-wrapper">
       <Carousel>
