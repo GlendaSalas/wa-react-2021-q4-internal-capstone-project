@@ -23,6 +23,7 @@ export const SlideWrapper = styled.div`
   object-fit: cover;
   scroll-snap-align: center;
   position: relative;
+  height: 500px;
 `;
 export const ImageSlider = styled.img`
   width: 100%;
