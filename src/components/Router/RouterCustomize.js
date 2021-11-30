@@ -1,6 +1,6 @@
 import { Home } from '../../pages/Home/Home';
 import { ProductList } from '../../pages/ProductList/ProductList';
-import { useRouterContext } from './Router.context';
+import { useRouterContext } from './GlobalProvider';
 import LoadingView from '../commons/Loader/Loader';
 import React, { useEffect, useState } from 'react';
 

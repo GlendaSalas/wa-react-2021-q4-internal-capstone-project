@@ -5,12 +5,12 @@ import { Logo } from './Logo/Logo';
 import React from 'react';
 
 const Header = () => {
-  return React.createElement(
-    styled.HeaderWrapper,
-    null,
-    React.createElement(Logo, null),
-    React.createElement(Input, null),
-    React.createElement(CardButtom, null)
+  return (
+    <styled.HeaderWrapper>
+      <Logo />
+      <Input />
+      <CardButtom />
+    </styled.HeaderWrapper>
   );
 };
 

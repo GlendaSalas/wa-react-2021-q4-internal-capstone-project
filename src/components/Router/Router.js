@@ -1,5 +1,5 @@
 import { CustomRouter } from './RouterCustomize';
-import { RouterProvider } from './Router.context';
+import { RouterProvider } from './GlobalProvider';
 
 export const Router = () => {
   return (

@@ -6,16 +6,26 @@ const pagination = () => {
   const numberOfPages = 10;
   const items = new Array(numberOfPages);
   items.fill(1);
-  return React.createElement(
-    styled.PaginationWrapper,
-    null,
-    React.createElement(Button, null, React.createElement(styled.ItemWrapper, null, 'Start')),
-    React.createElement(Button, null, React.createElement(styled.ItemWrapper, null, 'Prev')),
-    items.map((n, idx) =>
-      React.createElement(Button, { key: `pagination_${idx}` }, React.createElement(styled.ItemWrapper, null, idx))
-    ),
-    React.createElement(Button, null, React.createElement(styled.ItemWrapper, null, 'Next')),
-    React.createElement(Button, null, React.createElement(styled.ItemWrapper, null, 'End'))
+  return (
+    <styled.PaginationWrapper>
+      <Button>
+        <styled.ItemWrapper>Start</styled.ItemWrapper>
+      </Button>
+      <Button>
+        <styled.ItemWrapper>Prev</styled.ItemWrapper>
+      </Button>
+      {items.map((n, idx) => (
+        <Button key={`pagination_${idx}`}>
+          <styled.ItemWrapper>{idx}</styled.ItemWrapper>
+        </Button>
+      ))}
+      <Button>
+        <styled.ItemWrapper>Next</styled.ItemWrapper>
+      </Button>
+      <Button>
+        <styled.ItemWrapper>End</styled.ItemWrapper>
+      </Button>
+    </styled.PaginationWrapper>
   );
 };
 

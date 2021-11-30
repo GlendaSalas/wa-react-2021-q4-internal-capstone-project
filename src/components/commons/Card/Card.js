@@ -3,7 +3,11 @@ import CardWrapper from './Card.css.js';
 import React from 'react';
 
 const Card = (props) => {
-  return React.createElement(CardWrapper, { height: props.width, width: props.width }, props.children);
+  return (
+  <CardWrapper height={props.width} width={props.width}>
+    {props.children}
+  </CardWrapper>
+  );
 };
 
 export default Card;

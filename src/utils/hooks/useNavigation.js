@@ -1,4 +1,4 @@
-import { useRouterContext } from '../../components/Router/Router.context';
+import { useRouterContext } from '../../components/Router/GlobalProvider';
 
 export const useNavigation = () => {
   const { route, changeRoute } = useRouterContext();

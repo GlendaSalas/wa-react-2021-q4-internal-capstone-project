@@ -5,12 +5,12 @@ import Header from '../commons/Header/Header';
 import React from 'react';
 
 const Layout = (props) => {
-  return React.createElement(
-    React.Fragment,
-    null,
-    React.createElement(Header, null),
-    React.createElement(style.default, null, props.children),
-    React.createElement(Footer, null)
+  return (
+    <>
+      <Header />
+      <style.default>{props.children}</style.default>
+      <Footer />
+    </>
   );
 };
 

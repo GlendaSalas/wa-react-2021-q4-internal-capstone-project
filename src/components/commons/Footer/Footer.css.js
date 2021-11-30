@@ -12,4 +12,4 @@ const FooterWraper = styled.div`
   font-family: fantasy;
 `;
 
-export default FooterWraper;
+export { FooterWraper };

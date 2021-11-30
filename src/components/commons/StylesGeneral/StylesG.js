@@ -6,21 +6,53 @@ const StylesG = (props) => {
   switch (props.variant) {
     default:
     case 'h1':
-      return React.createElement(styled.H1, { color: props.color, align: props.align }, props.children);
+      return (
+        <styled.H1 color={props.color} align={props.align}>
+          {props.children}
+        </styled.H1>
+      );
     case 'h2':
-      return React.createElement(styled.H2, { color: props.color, align: props.align }, props.children);
+      return (
+        <styled.H2 color={props.color} align={props.align}>
+          {props.children}
+        </styled.H2>
+      );
     case 'h3':
-      return React.createElement(styled.H3, { color: props.color, align: props.align }, props.children);
+      return (
+        <styled.H3 color={props.color} align={props.align}>
+          {props.children}
+        </styled.H3>
+      );
     case 'h4':
-      return React.createElement(styled.H4, { color: props.color, align: props.align }, props.children);
+      return (
+        <styled.H4 color={props.color} align={props.align}>
+          {props.children}
+        </styled.H4>
+      );
     case 'h5':
-      return React.createElement(styled.H5, { color: props.color, align: props.align }, props.children);
+      return (
+        <styled.H5 color={props.color} align={props.align}>
+          {props.children}
+        </styled.H5>
+      );
     case 'h6':
-      return React.createElement(styled.H6, { color: props.color, align: props.align }, props.children);
+      return (
+        <styled.H6 color={props.color} align={props.align}>
+          {props.children}
+        </styled.H6>
+      );
     case 'p':
-      return React.createElement(styled.P, { color: props.color, align: props.align }, props.children);
+      return (
+        <styled.P color={props.color} align={props.align}>
+          {props.children}
+        </styled.P>
+      );
     case 'span':
-      return React.createElement(styled.Span, { color: props.color, align: props.align }, props.children);
+      return (
+        <styled.Span color={props.color} align={props.align}>
+          {props.children}
+        </styled.Span>
+      );
   }
 };
 

@@ -5,11 +5,11 @@ import React from 'react';
 
 const Categories = () => {
   const categories = getCategories();
-  return React.createElement(
-    styled.CategoriesWrapper,
-    null,
-    React.createElement(styled.Title, null, 'Categories'),
-    React.createElement(GridCategories, { categories: categories })
+  return (
+    <styled.CategoriesWrapper>
+      <styled.Title>Categories</styled.Title>
+      <GridCategories categories={categories} />
+    </styled.CategoriesWrapper>
   );
 };
 

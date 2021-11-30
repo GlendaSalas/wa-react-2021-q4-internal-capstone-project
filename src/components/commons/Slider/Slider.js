@@ -24,32 +24,26 @@ export const Slider = (props) => {
       }
     }
   };
-  return React.createElement(
-    styled.SliderContainer,
-    null,
-    React.createElement(
-      styled.SliderWrapper,
-      { ref: wrapperRef, onScroll: handleScroll },
-      props.items.map((item, key) =>
-        React.createElement(
-          styled.SlideWrapper,
-          { key: `slider_item_${key}` },
-          React.createElement(styled.ImageSlider, { src: item.imageUrl, loading: 'lazy' }),
-          React.createElement(styled.TitleSlider, null, item.title),
-          React.createElement(styled.DescriptionSlider, null, item.description)
-        )
-      )
-    ),
-    React.createElement(
-      styled.SliderControls,
-      null,
-      props.items.map((item, idx) =>
-        React.createElement(styled.SliderControl, {
-          key: `slider_control_${idx}`,
-          onClick: () => handleClick(idx),
-          selected: idx === selectedSlide,
-        })
-      )
-    )
+  return (
+    <styled.SliderContainer>
+      <styled.SliderWrapper ref={wrapperRef} onScroll={handleScroll}>
+        {props.items.map((item, key) => (
+          <styled.SlideWrapper key={`slider_item_${key}`}>
+            <styled.ImageSlider src={item.imageUrl} loading="lazy" />
+            <styled.TitleSlider>{item.title}</styled.TitleSlider>
+            <styled.DescriptionSlider>{item.description}</styled.DescriptionSlider>
+          </styled.SlideWrapper>
+        ))}
+      </styled.SliderWrapper>
+      <styled.SliderControls>
+        {props.items.map((item, idx) => (
+          <styled.SliderControl
+            key={`slider_control_${idx}`}
+            onClick={() => handleClick(idx)}
+            selected={idx === selectedSlide}
+          />
+        ))}
+      </styled.SliderControls>
+    </styled.SliderContainer>
   );
 };

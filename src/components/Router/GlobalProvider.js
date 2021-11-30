@@ -5,11 +5,11 @@ const defaultState = {
   route: '/',
 };
 
-const RouterContext = createContext(defaultState);
+const GlobalProvider = createContext(defaultState);
 
-export default RouterContext;
+export default GlobalProvider;
 
-export const useRouterContext = () => useContext(RouterContext);
+export const useRouterContext = () => useContext(GlobalProvider);
 
 export const RouterProvider = ({ children }) => {
   const [route, setRoute] = useState(defaultState.route);
@@ -17,7 +17,7 @@ export const RouterProvider = ({ children }) => {
     setRoute(route);
   };
   return React.createElement(
-    RouterContext.Provider,
+    GlobalProvider.Provider,
     {
       value: {
         route,
