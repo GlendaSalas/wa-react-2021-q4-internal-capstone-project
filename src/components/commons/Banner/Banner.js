@@ -2,7 +2,7 @@ import { Slider } from '../Slider/Slider';
 import BANNERS from '../../../mocks/en-us/featured-banners.json';
 import React from 'react';
 
-const BannerSlider = () => {
+const Banner = () => {
   const parsedBanners = BANNERS.results.map((result) => ({
     imageUrl: result.data.main_image.url,
     href: result.href,
@@ -12,4 +12,4 @@ const BannerSlider = () => {
   return React.createElement(Slider, { items: parsedBanners });
 };
 
-export default BannerSlider;
+export default Banner;

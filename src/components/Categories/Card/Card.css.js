@@ -6,7 +6,5 @@ export const CategoryCardImage = styled.img`
 `;
 
 export const CategoryName = styled.h6`
-  margin-left: 8px;
-  margin-right: 8px;
-  margin-bottom: 8px;
+  margin: 0 8px 8px 8px
 `;

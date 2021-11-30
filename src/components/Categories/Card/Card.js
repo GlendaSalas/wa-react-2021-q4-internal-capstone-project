@@ -5,12 +5,11 @@ import React from 'react';
 import Styles from '../../commons/StylesGeneral/StylesG';
 
 const CategoryCard = (props) => {
-  return React.createElement(
-    Card,
-    { height: 200, width: 250, 'background-color': '#f7e3e0' },
-    React.createElement(styled.CategoryCardImage, { src: props.category.imageUrl, loading: 'lazy' }),
-    React.createElement(Styles, { variant: 'h4' }, props.category.name)
-  );
+  return (
+    <Card style={{ height: 200, width: 250, 'background-color': '#f7e3e0' }}>
+      <styled.CategoryCardImage src={props.category.imageUrl} loading='lazy' />
+      <Styles style={{ variant: 'h4' }} name={ props.category.name } />
+    </Card>);
 };
 
 export default CategoryCard;
