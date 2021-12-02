@@ -3,29 +3,33 @@
 import * as styled from './Card.css.js';
 import Card from '../../commons/Card/Card';
 import React from 'react';
-import styleG from '../../commons/StylesGeneral/StylesG';
+import Styles from '../../commons/StylesGeneral/StylesG';
 
 const card = (props) => {
   const { product } = props;
+  console.log(product);
   return (
     <>
-      <Card height={300} width={200}>
+      <Card height={200} width={100}>
         <styled.ProductImage src={product.imageUrl} loading="lazy" />
-        <styleG variant="h5" color="#838988">
-          SKU: {product.sku}
-        </styleG>
-        <styleG variant="h3" align="center">
+        <Styles variant="h3" align="center">
           {product.name}
-        </styleG>
-        <styleG variant="h6" color="#838988">
-          Stock: {product.stock}
-        </styleG>
-        <styleG variant="h4" color="#3c2239">
-          {product.price.toLocaleString("en-US", {
-            style: "currency",
-            currency: "USD",
+        </Styles>
+        <styled.ProductPrice variant="h3" color="#3c2239">
+          {product.price.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD',
           })}
-        </styleG>
+        </styled.ProductPrice>
+        <styled.ProductStock variant="h6" color="#838988">
+          Stock: {product.stock}
+        </styled.ProductStock>
+        <styled.ProductSku variant="h6" color="#838988">
+          SKU: {product.sku}
+        </styled.ProductSku>
+        <styled.ProductSlug variant="h6" color="#838988">
+          Category: {product.categorySlug}
+        </styled.ProductSlug>
       </Card>
     </>
   );
