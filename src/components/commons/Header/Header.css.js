@@ -22,5 +22,5 @@ export const Input = styled.input`
   margin-right: 8px;
   padding: 8px;
   outline: 0;
-  direction: rtl;
+  direction: ltr;
 `;

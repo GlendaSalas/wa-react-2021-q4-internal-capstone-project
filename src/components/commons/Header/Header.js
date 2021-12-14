@@ -26,12 +26,16 @@ export const Header = () => {
       setValue(event === null ? 0 : event.target.value);
     }
   };
-
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      history.push({ pathname: '/search', search: `?q=${value}` });
+    }
+  };
   return (
     <styled.HeaderWrapper>
       <Logo />
-      <styled.Input onChange={handleChange} value={value} placeholder="Search for anything" />
-      <ButtonStyle onClick={handleClick}>
+      <styled.Input onChange={handleChange} onKeyDown={handleKeyDown} value={value} placeholder="Search for anything" />
+      <ButtonStyle onClick={handleClick} style={{ height: '100%' }}>
         <GeneralStyled variant="h2" color="#66666">
           <FontAwesomeIcon icon={faSearch} />
         </GeneralStyled>
