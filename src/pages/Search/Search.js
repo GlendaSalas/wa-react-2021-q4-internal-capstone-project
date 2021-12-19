@@ -3,7 +3,7 @@ import { useHistory, useLocation } from 'react-router';
 import Layout from '../../components/Layout/Layout';
 import LoadingView from '../../components/commons/Loader/Loader';
 import NotResultsImage from '../../assets/nothing.png';
-import Typography from '../../components/commons/StylesGeneral/StylesG';
+import StylesGeneral from '../../components/commons/StylesGeneral/StylesG';
 import useSearch from '../../utils/hooks/useSearch';
 
 export const Search = () => {
@@ -31,7 +31,7 @@ export const Search = () => {
         {data && data?.products.length > 0 && !isLoading && (
           <>
             <br />
-            <Typography variant="h4">{`Showing ${data.pagination.totalResults} results for search: "${searchTerm}"`}</Typography>
+            <StylesGeneral variant="h4">{`Showing ${data.pagination.totalResults} results for search: "${searchTerm}"`}</StylesGeneral>
             <br />
             <GridProduct
               products={data.products}
@@ -50,7 +50,7 @@ export const Search = () => {
               marginTop: '20px',
             }}
           >
-            <Typography align="center">{`Not results found for search: "${searchTerm}"`}</Typography>
+            <StylesGeneral align="center">{`Not results found for search: "${searchTerm}"`}</StylesGeneral>
             <img src={NotResultsImage} width="300" height="300" alt="no results" />
           </div>
         )}

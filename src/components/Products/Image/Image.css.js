@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { BREAKPOINTS } from "../../utils/variables";
+import { BREAKPOINTS } from '../../../utils/variables';
+import styled from 'styled-components';
 
 export const ProductImageWrapper = styled.div`
   width: 100%;

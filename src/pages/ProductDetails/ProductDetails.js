@@ -1,20 +1,22 @@
-import * as S from './ProductDetailWrapper.style';
-import { Button } from '../../components/Button/Button';
-import { Layout } from '../../components/Layout/Layout';
-import { LoadingView } from '../../components/LoadingView/LoadingView';
-import { ProductDescription } from '../../components/ProductDescription/ProductDescription';
-import { ProductImage } from '../../components/ProductImage/ProductImage';
-import { ProductInfo } from '../../components/ProductInfo/ProductInfo';
-import { ProductSpecs } from '../../components/ProductSpecs/ProductSpecs';
-import { Typography } from '../../components/Typogrphy/Typography';
+/* eslint-disable no-unused-vars */
+import * as S from './ProductDetails.css';
+import { ProductDescription } from '../../components/Products/Description/Description';
+import { ProductImage } from '../../components/Products/Image/Image';
+import { ProductInfo } from '../../components/Products/Information/Information';
+import { ProductSpecs } from '../../components/Products/Specifications/Specifications';
 import { useParams } from 'react-router-dom';
-import { useProductDetail } from '../../hooks/useProductDetail';
+import { useProductDetail } from '../../utils/hooks/useProductDetail';
+import Button from '../../components/commons/Button/Button';
+import Layout from '../../components/Layout/Layout';
+import LoadingView from '../../components/commons/Loader/Loader';
 import React from 'react';
-export const ProductDetail = () => {
+import StylesGeneral from '../../components/commons/StylesGeneral/StylesG';
+
+const ProductDetail = () => {
   const { productid } = useParams();
   const { data, isLoading } = useProductDetail(productid);
   if (isLoading) {
-    return React.createElement(LoadingView, null);
+    return <LoadingView />;
   }
   return (
     <>
@@ -22,10 +24,10 @@ export const ProductDetail = () => {
         <Layout>
           <S.ProductDetailWrapper>
             <S.ProductImageWrapper>
-              <Typography variant="h2">{data.name}</Typography>
-              <Typography variant="h6" color="#666">
+              <StylesGeneral variant="h2">{data.name}</StylesGeneral>
+              <StylesGeneral variant="h6" color="#666">
                 SKU: {data.sku}
-              </Typography>
+              </StylesGeneral>
               <ProductImage product={data} />
             </S.ProductImageWrapper>
             <S.ProductDescription>
@@ -43,3 +45,4 @@ export const ProductDetail = () => {
   );
 };
 
+export default ProductDetail;

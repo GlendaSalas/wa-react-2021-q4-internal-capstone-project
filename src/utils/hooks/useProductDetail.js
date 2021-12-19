@@ -3,24 +3,30 @@ import { parseProducts } from '../products';
 import { useBaseRequest } from './useBaseRequest';
 import { useQuery } from 'react-query';
 
-export const useFeaturedProducts = () => {
+export const useProductDetail = (productId) => {
   const { data: ref, isLoading: isLoadingBaseRequest } = useBaseRequest();
-  const getFeaturedProducts = async (signal) => {
+  const getProduct = async (signal) => {
     const response = await fetch(
-      `${API_BASE_URL}/documents/search?ref=${ref}&q=${encodeURIComponent(
-        '[[at(document.type, "product")]]'
-      )}q=${encodeURIComponent('[[at(document.type, "Featured")]]')}&lang=en-us&pageSize=16`,
+      `${API_BASE_URL}/documents/search?ref=${ref}&q=${encodeURIComponent(`[[at(document.id, "${productId}")]]`)}`,
       {
         signal,
       }
     );
     const data = await response.json();
     if (data && data.results) {
-      return parseProducts(data);
+      const results = parseProducts(data);
+
+      if (results.products[0]) {
+        return results.products[0];
+      } else {
+        throw new Error('Product not found');
+      }
     }
   };
-  const { data, isLoading } = useQuery('featured_products', async ({ signal }) => getFeaturedProducts(signal), {
+
+  const { data, isLoading } = useQuery(['product_detail', productId], async ({ signal }) => getProduct(signal), {
     enabled: !!ref,
   });
+
   return { data, isLoading: isLoading || isLoadingBaseRequest };
 };

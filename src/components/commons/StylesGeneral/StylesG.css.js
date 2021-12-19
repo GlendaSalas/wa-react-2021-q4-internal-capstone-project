@@ -14,14 +14,14 @@ export const H2 = styled.h2`
 `;
 export const H3 = styled.h3`
   margin: 0;
-  color: ${(props) => props.color || ''};
+  color: ${(props) => props.color || '#3c2239'};
   text-align: ${(props) => props.align || 'left'};
   font-family: arial;
   margin-block-start: 0;
   margin-block-end: 0;
   margin-inline-start: 0;
   margin-inline-end: 0;
-  font-size: 10px;
+  font-size: ${(props) => props.size || ' 1em '};
 `;
 export const H4 = styled.h4`
   margin: 0;
@@ -32,14 +32,13 @@ export const H4 = styled.h4`
   margin-block-end: 0;
   margin-inline-start: 0;
   margin-inline-end: 0;
-  font-size: 10px;
 `;
 export const H5 = styled.h5`
   margin: 0;
   color: ${(props) => props.color || ''};
   text-align: ${(props) => props.align || 'left'};
   font-family: arial;
-  font-size: 8px;
+  font-size: ${(props) => props.size || ' 1em '};
 `;
 export const H6 = styled.h6`
   margin: 0;
@@ -58,8 +57,8 @@ export const Span = styled.span`
   font-family: cursive;
 `;
 export const P = styled.p`
-  margin: 0;
+  margin: 0.2em;
   color: ${(props) => props.color || ''};
   text-align: ${(props) => props.align || 'left'};
-  font-family: fantasy;
+  font-family: arial;
 `;

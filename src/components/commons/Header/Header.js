@@ -22,9 +22,7 @@ export const Header = () => {
   };
 
   const handleChange = (event) => {
-    if (event.target) {
-      setValue(event === null ? 0 : event.target.value);
-    }
+    setValue(event === null ? 0 : event.target.value);
   };
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
