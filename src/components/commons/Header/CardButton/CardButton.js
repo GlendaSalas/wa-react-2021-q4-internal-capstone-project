@@ -1,14 +1,20 @@
 import * as styled from './CardButton.css';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useAppSelector } from '../../../../Store';
+import { useNavigation } from '../../../../utils/hooks/useNavigation';
 import React from 'react';
 
-const cardButton = () => {
+const CardButton = () => {
+  const { navigateTo } = useNavigation();
+  const numItems = useAppSelector((state) => state.cart.length);
+
   return (
-    <styled.CartButtonWrapper>
+    <styled.CartButtonWrapper onClick={() => navigateTo('/cart')}>
       <FontAwesomeIcon icon={faShoppingCart} />
+      {numItems > 0 && <styled.Badge>{numItems}</styled.Badge>}
     </styled.CartButtonWrapper>
   );
 };
 
-export { cardButton as CardButtom };
+export { CardButton as CardButtom };

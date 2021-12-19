@@ -6,6 +6,8 @@ const wrapper = styled.div`
   bottom: 100px;
   padding-top: 100px;
   padding-bottom: 100px;
+  padding-left: 1em;
+  padding-rigth: 1em;
 `;
 
 export default wrapper;

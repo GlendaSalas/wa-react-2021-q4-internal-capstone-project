@@ -1,4 +1,6 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Cart } from '../../pages/Cart/Cart';
+import { Checkout } from '../../pages/Checkout/Checkout';
 import { Home } from '../../pages/Home/Home';
 import { NotFound } from '../../pages/404/404';
 import { Search } from '../../pages/Search/Search';
@@ -20,6 +22,12 @@ const Router = () => {
         </Route>
         <Route exact path="/product/:productid">
           <ProductDetails />
+        </Route>
+        <Route exact path="/cart">
+          <Cart />
+        </Route>
+        <Route exact path="/checkout">
+          <Checkout />
         </Route>
         <Route path="*">
           <NotFound />

@@ -39,4 +39,10 @@ const parseProducts = (productInput) => {
     },
   };
 };
-export { parseProducts };
+const formatPrice = (price) => {
+  return price.toLocaleString('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+};
+export { parseProducts, formatPrice };
