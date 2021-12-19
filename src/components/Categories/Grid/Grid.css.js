@@ -6,4 +6,4 @@ const grid = styled.div`
   justify-content: space-evenly;
 `;
 
-export { grid as GridCategories };
+export default grid;

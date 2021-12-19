@@ -8,10 +8,6 @@ export const SliderWrapper = styled.div`
   overflow-x: scroll;
   overflow-y: hidden;
 
-  // Hide scroll
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
-
   &::-webkit-scrollbar {
     background: transparent; /* Chrome/Safari/Webkit */
     width: 0px;
@@ -23,7 +19,6 @@ export const SlideWrapper = styled.div`
   object-fit: cover;
   scroll-snap-align: center;
   position: relative;
-  height: 500px;
 `;
 export const ImageSlider = styled.img`
   width: 100%;
@@ -39,17 +34,27 @@ export const TitleSlider = styled.div`
   border-radius: 0 20px 20px 0;
   @media ${BREAKPOINTS.TABLET} {
     font-size: 20px;
+    top: 38%;
+    bottom: 47%;
+    padding: 10px;
   }
 
   @media ${BREAKPOINTS.DESKTOP} {
     font-size: 24px;
+    bottom: 30%;
+    padding: 10px;
+  }
+  @media ${BREAKPOINTS.MOBILE} {
+    font-size: 14px;
+    bottom: 30%;
+    padding: 10px;
   }
   color: #333;
 `;
 export const DescriptionSlider = styled.div`
   position: absolute;
   background: rgb(214 228 228 / 78%);
-  top: 50%;
+  top: 10%;
   font-size: 10px;
   padding: 30px;
   color: #403838;
@@ -61,6 +66,9 @@ export const DescriptionSlider = styled.div`
 
   @media ${BREAKPOINTS.DESKTOP} {
     font-size: 20px;
+  }
+  @media ${BREAKPOINTS.MOBILE} {
+    display: none;
   }
   padding: 30px;
   color: #403838;
@@ -84,6 +92,10 @@ export const SliderControl = styled.button`
   cursor: pointer;
   border: 2px solid #ddd;
   animation: 1s all linear;
+  @media ${BREAKPOINTS.MOBILE} {
+    height: 10px;
+    width: 10px;
+  }
   ${({ selected }) =>
     selected &&
     `

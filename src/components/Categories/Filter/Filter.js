@@ -1,35 +1,50 @@
 /* eslint-disable react/prop-types */
-import * as styled from './Filter.css';
+import * as S from './Filter.css';
+import { Skeleton } from '../../commons/Skeleton/Skeleton';
+import { useFeaturedCategories } from '../../../utils/hooks/useFeaturedCategories';
 import Button from '../../commons/Button/Button';
-import getCategories from '../../../services/categories/categories';
 import React from 'react';
-import StyledGeneral from '../../commons/StylesGeneral/StylesG';
+import StylesGeneral from '../../commons/StylesGeneral/StylesG';
 
-const filter = (props) => {
-  const categories = getCategories();
+const CategoriesFilters = (props) => {
+  const { data, isLoading } = useFeaturedCategories();
+  if (isLoading) {
+    React.createElement(Skeleton, { height: '400px', width: '100%' });
+  }
   return (
-    <div>
-      <StyledGeneral variant="h4">Filters</StyledGeneral>
+    <>
+      {data && !isLoading && (
+        <div>
+          <StylesGeneral variant="h4">Filters</StylesGeneral>
 
-      <styled.CategoriesFilterContainerWrapper>
-        <StyledGeneral variant="h6">By category</StyledGeneral>
+          <S.CategoriesFilterContainerWrapper>
+            <StylesGeneral variant="h6">By category</StylesGeneral>
 
-        <styled.CategoriesFilterItemsWrapper>
-          {categories.map((category) => (
-            <styled.CategoriesFiltersButtonWrapper key={category.id}>
-              <Button onClick={() => props.onSelectFilter(category.id)} key={category.id}>
-                {
-                  props.filters.indexOf(category.id) > -1 ? (<styled.CategorySelected>{category.name}</styled.CategorySelected>) : (
-                    category.name
-                  )
-                }
+            <S.CategoriesFilterItemsWrapper>
+              {data.map((category) => (
+                <S.CategoriesFiltersButtonWrapper key={category.slug}>
+                  <Button onClick={() => props.onSelectFilter(category.slug)} key={category.id}>
+                    {props.filters.indexOf(category.slug) > -1 ? (
+                      <S.CategorySelected>{category.name}</S.CategorySelected>
+                    ) : (
+                      category.name
+                    )}
+                  </Button>
+                </S.CategoriesFiltersButtonWrapper>
+              ))}
+
+              <Button onClick={() => props.onClearFilter()}>
+                <b>
+                  <StylesGeneral variant="h3" align="center">
+                    Clear All
+                  </StylesGeneral>
+                </b>
               </Button>
-            </styled.CategoriesFiltersButtonWrapper>
-          ))}
-        </styled.CategoriesFilterItemsWrapper>
-      </styled.CategoriesFilterContainerWrapper>
-    </div>
+            </S.CategoriesFilterItemsWrapper>
+          </S.CategoriesFilterContainerWrapper>
+        </div>
+      )}
+    </>
   );
 };
-
-export { filter as CategoriesFilter };
+export { CategoriesFilters };

@@ -1,14 +1,13 @@
-import { useRouterContext } from '../../components/Router/GlobalProvider';
+import { useHistory } from 'react-router';
 
 export const useNavigation = () => {
-  const { route, changeRoute } = useRouterContext();
+  const history = useHistory();
+
   const navigateTo = (route) => {
-    if (changeRoute) {
-      changeRoute(route);
-    }
+    history.push(route);
   };
+
   return {
     navigateTo,
-    route,
   };
 };

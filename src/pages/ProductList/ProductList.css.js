@@ -4,8 +4,8 @@ import styled from 'styled-components';
 export const ProductListWrapper = styled.div`
   display: grid;
   grid-template-areas:
-    'categories categories'
-    'products products';
+    'categories products'
+    'categories products';
 
   @media ${BREAKPOINTS.DESKTOP} {
     grid-template-areas:

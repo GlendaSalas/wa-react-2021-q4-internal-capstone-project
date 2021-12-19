@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const buttom = styled.button`
   height: 100%;
   padding: 0 16px;
-  color: white;
+  color: #66666;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,0 +1,49 @@
+extends: react-app
+settings:
+  react:
+    version: 17.0.2
+plugins:
+  - sort-imports-es6-autofix
+  - prettier
+  - jsx-a11y
+  - react
+  - import
+parserOptions:
+  ecmaFeatures:
+    legacyDecorators: true
+rules:
+  sort-imports-es6-autofix/sort-imports-es6:
+    - 2
+    - ignoreCase: true
+      ignoreMemberSort: false
+      memberSyntaxSortOrder:
+        - none
+        - all
+        - multiple
+        - single
+  curly: error
+  jsx-a11y/href-no-hash: off
+  jsx-a11y/anchor-is-valid:
+    - warn
+    - aspects:
+      - invalidHref
+  react/prop-types: error
+  no-var: error
+  no-unused-vars: error
+  no-duplicate-imports: error
+  no-redeclare: error
+  no-undefined: error
+  no-use-before-define:
+    - error
+    - functions: false
+  no-unused-expressions: error
+
+
+  prettier/prettier:
+    - error
+    - printWidth: 120
+      singleQuote: true
+      tabWidth: 2
+      endOfLine: auto
+globals:
+  GLOBAL_EXTERNAL_CONFIG: false

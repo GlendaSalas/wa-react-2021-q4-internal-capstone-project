@@ -1,25 +1,39 @@
-import * as styled from './ProductList.css.js';
-import { CategoriesFilter } from '../../components/Categories/Filter/Filter';
-import { getProducts } from '../../services/products/products';
+import * as S from './ProductList.css.js';
+import { CategoriesFilters } from '../../components/Categories/Filter/Filter';
 import { GridProduct } from '../../components/Products/Grid/Grid';
-import { Pagination } from '../../components/commons/Pagination/Pagination';
+import { useHistory, useLocation } from 'react-router';
+import GeneralStyled from '../../components/commons/StylesGeneral/StylesG';
 import Layout from '../../components/Layout/Layout';
+import LoadingView from '../../components/commons/Loader/Loader';
 import React, { useEffect, useState } from 'react';
-import StyleG from '../../components/commons/StylesGeneral/StylesG';
+import useProducts from '../../utils/hooks/useProducts';
 
-export const ProductList = () => {
-  const [products, setProducts] = useState(getProducts());
+const ProductList = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const history = useHistory();
+
+  const search = useLocation().search;
+  const searchParam = new URLSearchParams(search);
+  const page = parseInt(searchParam.get('page') || '1');
+
+  const { data, isLoading } = useProducts([], page);
+
+  const [products, setProducts] = useState([]);
   const [filters, setFilters] = useState([]);
 
   useEffect(() => {
-    const products = getProducts();
-    if (filters.length === 0) {
-      setProducts(products);
-    } else {
-      setProducts(products.filter((product) => filters.indexOf(product.category) !== -1));
+    if (data && !isLoading) {
+      const products = data.products;
+      if (filters.length === 0) {
+        setProducts(products);
+      } else {
+        setProducts(products.filter((product) => filters.indexOf(product.categorySlug) !== -1));
+      }
     }
-  }, [filters]);
-
+  }, [filters, data, isLoading]);
   const handleSelectFilter = (filter) => {
     const filterIdx = filters.indexOf(filter);
     if (filterIdx === -1) {
@@ -28,26 +42,47 @@ export const ProductList = () => {
     }
     setFilters((oldFilters) => [...oldFilters.filter((item, idx) => idx !== filterIdx)]);
   };
-
-  return React.createElement(
-    Layout,
-    null,
-    React.createElement(
-      styled.ProductListWrapper,
-      null,
-      React.createElement(
-        styled.CategoriesFilterWrapper,
-        null,
-        React.createElement(CategoriesFilter, { onSelectFilter: handleSelectFilter, filters: filters })
-      ),
-      React.createElement(
-        styled.ProductsWrapper,
-        null,
-        products.length
-          ? React.createElement(GridProduct, { products: products })
-          : React.createElement(StyleG, { variant: 'h2' }, 'No results found')
-      )
-    ),
-    React.createElement(styled.PaginationWrapper, null, React.createElement(Pagination, null))
+  const handleClearFilter = () => {
+    setFilters([]);
+  };
+  const handleSetPage = (page) => {
+    history.push({
+      pathname: '/products',
+      search: `?page=${page}`,
+    });
+  };
+  if (!data && isLoading) {
+    return <LoadingView />;
+  }
+  return (
+    <>
+      {data && (
+        <Layout>
+          <S.ProductListWrapper>
+            <S.CategoriesFilterWrapper>
+              <CategoriesFilters
+                onSelectFilter={handleSelectFilter}
+                onClearFilter={handleClearFilter}
+                filters={filters}
+              />
+            </S.CategoriesFilterWrapper>
+            <S.ProductsWrapper>
+              {products.length ? (
+                <GridProduct
+                  products={products}
+                  pagination={data?.pagination}
+                  onSetPage={(page) => handleSetPage(page)}
+                  showPagination={true}
+                />
+              ) : (
+                <GeneralStyled variant="h2">No results found</GeneralStyled>
+              )}
+            </S.ProductsWrapper>
+          </S.ProductListWrapper>
+        </Layout>
+      )}
+    </>
   );
 };
+
+export default ProductList;

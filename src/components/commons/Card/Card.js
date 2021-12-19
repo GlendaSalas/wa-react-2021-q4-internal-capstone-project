@@ -4,9 +4,9 @@ import React from 'react';
 
 const Card = (props) => {
   return (
-  <CardWrapper height={props.width} width={props.width}>
-    {props.children}
-  </CardWrapper>
+    <CardWrapper height={props.width} width={props.width}>
+      {props.children}
+    </CardWrapper>
   );
 };
 

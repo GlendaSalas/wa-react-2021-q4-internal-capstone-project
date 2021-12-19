@@ -1,0 +1,6 @@
+Dockerfile
+README.md
+*.sh
+.dockerignore
+config
+*.iml

@@ -5,5 +5,5 @@ import React from 'react';
 
 export const Logo = () => {
   const { navigateTo } = useNavigation();
-  return <styled.LogoImg src={LogoImage} onClick={() => navigateTo("/")} />;
+  return <styled.LogoImg src={LogoImage} onClick={() => navigateTo('/')} />;
 };
