@@ -13,8 +13,23 @@ const buttom = styled.button`
   border: 0;
 
   &:hover {
-    color: #efefef;
+    color: #5e5b5b;
   }
 `;
 
-export { buttom as CartButtonWrapper };
+const Badge = styled.div`
+  height: 11px;
+  width: 11px;
+  font-size: 9px;
+  border-radius: 12px;
+  background: rgb(48 187 187);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 6px;
+  right: 0px;
+`;
+
+export { buttom as CartButtonWrapper, Badge };
