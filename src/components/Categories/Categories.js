@@ -7,7 +7,7 @@ const Categories = () => {
   const categories = getCategories();
   return (
     <styled.CategoriesWrapper>
-      <styled.Title>Categories</styled.Title>
+      <styled.Title data-testid="categories-title">Categories</styled.Title>
       <GridCategories categories={categories} />
     </styled.CategoriesWrapper>
   );

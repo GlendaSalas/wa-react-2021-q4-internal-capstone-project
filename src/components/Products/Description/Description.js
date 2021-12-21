@@ -7,7 +7,7 @@ const description = (props) => {
       <StyledGeneral variant="h4" color="#056461">
         Description:{' '}
       </StyledGeneral>
-      <StyledGeneral variant="p" color="#666" text-alig="center">
+      <StyledGeneral variant="p" color="#666" text-alig="center" data-testid="product-detail-description">
         {props.product.description}
       </StyledGeneral>
     </>

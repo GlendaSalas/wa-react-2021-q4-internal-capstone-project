@@ -13,17 +13,23 @@ const pagination = (props) => {
             <styled.ItemWrapper onClick={() => onSetPage(1)}>Start</styled.ItemWrapper>
           </Button>
           <Button disabled={page === 1}>
-            <styled.ItemWrapper onClick={() => onSetPage(page - 1)}>Prev</styled.ItemWrapper>
+            <styled.ItemWrapper onClick={() => onSetPage(page - 1)} data-testid="pagination-prev-button">
+              Prev
+            </styled.ItemWrapper>
           </Button>
           {items.map((n, idx) => (
-            <Button key={`pagination_${idx}`} onClick={() => onSetPage(idx + 1)}>
+            <Button key={`pagination_${idx}`} onClick={() => onSetPage(idx + 1)} data-testid="pagination-number-button">
               <styled.ItemWrapper selected={idx + 1 === page}>{idx + 1}</styled.ItemWrapper>
             </Button>
           ))}
-          <Button onClick={() => onSetPage(page + 1)} disabled={page === totalPages}>
+          <Button
+            onClick={() => onSetPage(page + 1)}
+            disabled={page === totalPages}
+            data-testid="pagination-next-button"
+          >
             <styled.ItemWrapper>Next</styled.ItemWrapper>
           </Button>
-          <Button onClick={() => onSetPage(totalPages)}>
+          <Button onClick={() => onSetPage(totalPages)} data-testid="pagination-end-button">
             <styled.ItemWrapper>End</styled.ItemWrapper>
           </Button>
         </styled.PaginationWrapper>

@@ -32,8 +32,14 @@ export const Header = () => {
   return (
     <styled.HeaderWrapper>
       <Logo />
-      <styled.Input onChange={handleChange} onKeyDown={handleKeyDown} value={value} placeholder="Search for anything" />
-      <ButtonStyle onClick={handleClick} style={{ height: '100%' }}>
+      <styled.Input
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+        value={value}
+        placeholder="Search for anything"
+        data-testid="search-input"
+      />
+      <ButtonStyle onClick={handleClick} style={{ height: '100%' }} data-testid="search-button">
         <GeneralStyled variant="h2" color="#66666">
           <FontAwesomeIcon icon={faSearch} />
         </GeneralStyled>

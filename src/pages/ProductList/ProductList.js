@@ -68,12 +68,17 @@ const ProductList = () => {
             </S.CategoriesFilterWrapper>
             <S.ProductsWrapper>
               {products.length ? (
-                <GridProduct
-                  products={products}
-                  pagination={data?.pagination}
-                  onSetPage={(page) => handleSetPage(page)}
-                  showPagination={true}
-                />
+                <>
+                  <GeneralStyled variant="h5" data-testid="results-page-number">
+                    Showing page: {data.pagination.page}
+                  </GeneralStyled>
+                  <GridProduct
+                    products={products}
+                    pagination={data?.pagination}
+                    onSetPage={(page) => handleSetPage(page)}
+                    showPagination={true}
+                  />
+                </>
               ) : (
                 <GeneralStyled variant="h2">No results found</GeneralStyled>
               )}

@@ -7,10 +7,12 @@ export const ButtonStyle = styled.button`
   border: 0;
   height: 1px;
   text-align: left;
-  font-size: 8px;
+  font-size: 1em;
   cursor: pointer;
+  font-family: arial;
+  font-weight: bold;
+  color: #c37fbd;
   &:hover {
     text-decoration: underline;
-    font-size: 8px;
   }
 `;

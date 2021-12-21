@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const H1 = styled.h1`
-  margin: 0;
+  margin: 0.5em;
   color: ${(props) => props.color || ''};
   text-align: ${(props) => props.align || 'left'};
   font-family: arial;
