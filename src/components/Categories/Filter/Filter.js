@@ -22,7 +22,7 @@ const CategoriesFilters = (props) => {
 
             <S.CategoriesFilterItemsWrapper>
               {data.map((category) => (
-                <S.CategoriesFiltersButtonWrapper key={category.slug}>
+                <S.CategoriesFiltersButtonWrapper key={category.slug} data-testid="category-filter">
                   <Button onClick={() => props.onSelectFilter(category.slug)} key={category.id}>
                     {props.filters.indexOf(category.slug) > -1 ? (
                       <S.CategorySelected>{category.name}</S.CategorySelected>

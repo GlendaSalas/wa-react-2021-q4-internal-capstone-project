@@ -14,7 +14,7 @@ const Products = (props) => {
       {data && !isLoading && (
         <>
           <div style={{ display: 'flex' }}>
-            <styled.Title>
+            <styled.Title data-testid="featured-product-title">
               Products
               <Button
                 onClick={() => {

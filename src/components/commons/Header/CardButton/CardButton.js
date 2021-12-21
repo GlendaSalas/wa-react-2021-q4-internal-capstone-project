@@ -10,9 +10,9 @@ const CardButton = () => {
   const numItems = useAppSelector((state) => state.cart.length);
 
   return (
-    <styled.CartButtonWrapper onClick={() => navigateTo('/cart')}>
+    <styled.CartButtonWrapper data-testid="cart-button" onClick={() => navigateTo('/cart')}>
       <FontAwesomeIcon icon={faShoppingCart} />
-      {numItems > 0 && <styled.Badge>{numItems}</styled.Badge>}
+      {numItems > 0 && <styled.Badge data-testid="cart-badge">{numItems}</styled.Badge>}
     </styled.CartButtonWrapper>
   );
 };

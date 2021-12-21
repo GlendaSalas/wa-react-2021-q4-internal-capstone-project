@@ -24,7 +24,6 @@ const AddToCartButton = (props) => {
 
   const items = new Array(quantityLimit);
   items.fill(1);
-
   return (
     <S.AddToCartBottomWrapper>
       <S.Label>Quantity: {quantity}</S.Label>
@@ -35,7 +34,12 @@ const AddToCartButton = (props) => {
           </option>
         ))}
       </S.Select>
-      <Button onClick={(event) => handleClick(event, props.product)} style={{ 'background-color': '#198d87' }}>
+      <Button
+        onClick={(event) => handleClick(event, props.product)}
+        data-testid={props['data-testid']}
+        style={{ 'background-color': '#198d87' }}
+        disabled={props.product.stock === 0}
+      >
         Add to cart
       </Button>
     </S.AddToCartBottomWrapper>

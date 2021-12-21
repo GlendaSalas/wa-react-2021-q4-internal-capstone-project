@@ -10,6 +10,7 @@ const FooterWraper = styled.div`
   color: #eae3e2;
   background-color: #242323;
   font-family: fantasy;
+  text-align: center;
 `;
 
 export { FooterWraper };

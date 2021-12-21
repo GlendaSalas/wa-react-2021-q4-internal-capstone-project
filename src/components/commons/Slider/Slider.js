@@ -28,7 +28,7 @@ export const Slider = (props) => {
     <styled.SliderContainer>
       <styled.SliderWrapper ref={wrapperRef} onScroll={handleScroll}>
         {props.items.map((item, key) => (
-          <styled.SlideWrapper key={`slider_item_${key}`}>
+          <styled.SlideWrapper key={`slider_item_${key}`} data-testid="slider-item">
             <styled.ImageSlider src={item.imageUrl} loading="lazy" />
             <styled.TitleSlider>{item.title}</styled.TitleSlider>
             <styled.DescriptionSlider>{item.description}</styled.DescriptionSlider>

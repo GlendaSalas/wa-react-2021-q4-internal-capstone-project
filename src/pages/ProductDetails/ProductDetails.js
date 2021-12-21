@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import * as S from './ProductDetails.css';
+import { AddToCartButton } from '../../components/Cart/Add/Add';
 import { ProductDescription } from '../../components/Products/Description/Description';
 import { ProductImage } from '../../components/Products/Image/Image';
 import { ProductInfo } from '../../components/Products/Information/Information';
@@ -24,16 +25,16 @@ const ProductDetail = () => {
         <Layout>
           <S.ProductDetailWrapper>
             <S.ProductImageWrapper>
-              <StylesGeneral variant="h2">{data.name}</StylesGeneral>
-              <StylesGeneral variant="h6" color="#666">
+              <StylesGeneral variant="h2" data-testid="product-detail-name">
+                {data.name}
+              </StylesGeneral>
+              <StylesGeneral data-testid="product-detail-sku" variant="h6" color="#666">
                 SKU: {data.sku}
               </StylesGeneral>
               <ProductImage product={data} />
             </S.ProductImageWrapper>
             <S.ProductDescription>
-              <S.ButtonWrapper>
-                <Button onClick={() => {}}>Add to cart </Button>
-              </S.ButtonWrapper>
+              <AddToCartButton product={data} data-testid="product-detail-button" />
               <ProductInfo product={data} />
               <ProductDescription product={data} />
               <ProductSpecs product={data} />

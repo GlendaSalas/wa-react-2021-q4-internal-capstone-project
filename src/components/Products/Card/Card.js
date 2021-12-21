@@ -23,7 +23,7 @@ const card = (props) => {
             Category: {product.categorySlug}
           </styled.ProductSlug>
         </Link>
-        <AddToCartButton product={product} />
+        <AddToCartButton product={product} data-testid="product-card-add-to-cart-button" />
       </Card>
     </>
   );

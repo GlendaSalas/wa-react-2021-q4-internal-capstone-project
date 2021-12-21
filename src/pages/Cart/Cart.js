@@ -26,11 +26,10 @@ export const Cart = () => {
   const handleClearItems = () => {
     dispatch(clearItems());
   };
-
   if (cartItems.length === 0) {
     return (
       <Layout>
-        <NoCartItems />
+        <NoCartItems data-testid="cart-empty" />
       </Layout>
     );
   }
@@ -38,7 +37,7 @@ export const Cart = () => {
   return (
     <Layout>
       <>
-        <h1>Shopping Cart</h1>
+        <h1 data-testid="cart-title">Shopping Cart</h1>
         <Button onClick={handleClearItems} color="red">
           Remove all
         </Button>
@@ -53,7 +52,9 @@ export const Cart = () => {
           >
             Proceed to checkout
           </Button>
-          <StyledGenel variant="h2">Total: {formatPrice(total)} </StyledGenel>
+          <StyledGenel variant="h2" data-testid="cart-total">
+            Total: {formatPrice(total)}{' '}
+          </StyledGenel>
         </S.TotalWrapper>
       </>
     </Layout>
